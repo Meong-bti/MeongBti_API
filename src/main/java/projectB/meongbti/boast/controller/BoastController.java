@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/boast")
 public class BoastController {
 
-    private final BoastService boastService;
+    private final BoastService boastService ;
 
     @PostMapping("/save")
     public Long saveBoast(@RequestBody BoastSaveDto boastSaveDto) {
