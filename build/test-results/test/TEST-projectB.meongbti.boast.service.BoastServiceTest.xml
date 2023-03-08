@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="projectB.meongbti.boast.service.BoastServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-03-08T08:51:23" hostname="uniessui-MacBookPro.local" time="0.424">
+  <properties/>
+  <testcase name="자랑하기 등록" classname="projectB.meongbti.boast.service.BoastServiceTest" time="0.283"/>
+  <testcase name="자랑하기 삭제" classname="projectB.meongbti.boast.service.BoastServiceTest" time="0.139"/>
+  <system-out><![CDATA[17:51:19.283 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:51:19.292 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:51:19.323 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [projectB.meongbti.boast.service.BoastServiceTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+17:51:19.334 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [projectB.meongbti.boast.service.BoastServiceTest], using SpringBootContextLoader
+17:51:19.337 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [projectB.meongbti.boast.service.BoastServiceTest]: class path resource [projectB/meongbti/boast/service/BoastServiceTest-context.xml] does not exist
+17:51:19.338 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [projectB.meongbti.boast.service.BoastServiceTest]: class path resource [projectB/meongbti/boast/service/BoastServiceTestContext.groovy] does not exist
+17:51:19.338 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [projectB.meongbti.boast.service.BoastServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:51:19.339 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [projectB.meongbti.boast.service.BoastServiceTest]: BoastServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:51:19.382 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [projectB.meongbti.boast.service.BoastServiceTest]
+17:51:19.439 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/uniess/junho/Meong_bti_Backend/build/classes/java/main/projectB/meongbti/MeongbtiApplication.class]
+17:51:19.440 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration projectB.meongbti.MeongbtiApplication for test class projectB.meongbti.boast.service.BoastServiceTest
+17:51:19.527 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [projectB.meongbti.boast.service.BoastServiceTest]: using defaults.
+17:51:19.528 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+17:51:19.545 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3c291aad, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2d0566ba, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@733037, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7728643a, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@320e400, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5167268, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1cfd1875, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@28c0b664, org.springframework.test.context.event.EventPublishingTestExecutionListener@2c444798, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1af7f54a, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6ebd78d1, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@436390f4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4d157787, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@68ed96ca, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6d1310f6]
+17:51:19.547 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@60afd40d testClass = BoastServiceTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@28a2a3e7 testClass = BoastServiceTest, locations = '{}', classes = '{class projectB.meongbti.MeongbtiApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@26425897, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@30bcf3c1, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@42f48531, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4c4d27c8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@726e5805, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1787f2a0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.8)
+
+2023-03-08 17:51:19.868  INFO 5103 --- [    Test worker] p.m.boast.service.BoastServiceTest       : Starting BoastServiceTest using Java 11.0.18 on uniessui-MacBookPro.local with PID 5103 (started by uniess in /Users/uniess/junho/Meong_bti_Backend)
+2023-03-08 17:51:19.870  INFO 5103 --- [    Test worker] p.m.boast.service.BoastServiceTest       : No active profile set, falling back to 1 default profile: "default"
+2023-03-08 17:51:20.554  INFO 5103 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-08 17:51:20.613  INFO 5103 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interfaces.
+2023-03-08 17:51:21.097  INFO 5103 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-08 17:51:21.144  INFO 5103 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-03-08 17:51:21.355  INFO 5103 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-08 17:51:21.454  INFO 5103 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-08 17:51:21.703  INFO 5103 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-08 17:51:21.743  INFO 5103 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: 
+    
+    drop table if exists boast CASCADE 
+Hibernate: 
+    
+    drop table if exists heart CASCADE 
+Hibernate: 
+    
+    drop table if exists image_mapping CASCADE 
+Hibernate: 
+    
+    drop table if exists member CASCADE 
+Hibernate: 
+    
+    drop table if exists pet CASCADE 
+Hibernate: 
+    
+    create table boast (
+       boast_id bigint generated by default as identity,
+        boast_content varchar(255),
+        boast_date timestamp,
+        boast_image varchar(255),
+        member_id bigint,
+        pet_id bigint,
+        primary key (boast_id)
+    )
+Hibernate: 
+    
+    create table heart (
+       heart_id bigint generated by default as identity,
+        boast_id bigint,
+        member_id bigint,
+        primary key (heart_id)
+    )
+Hibernate: 
+    
+    create table image_mapping (
+       im_id bigint generated by default as identity,
+        im_store varchar(255),
+        im_upload varchar(255),
+        primary key (im_id)
+    )
+Hibernate: 
+    
+    create table member (
+       member_id bigint generated by default as identity,
+        member_email varchar(255) not null,
+        member_nick varchar(255) not null,
+        member_pw varchar(255) not null,
+        primary key (member_id)
+    )
+Hibernate: 
+    
+    create table pet (
+       pet_id bigint generated by default as identity,
+        pet_bday date not null,
+        pet_breed varchar(255) not null,
+        pet_gender varchar(255) not null,
+        pet_image varchar(255),
+        pet_mbti varchar(255),
+        pet_name varchar(255) not null,
+        pet_ntlz varchar(255) not null,
+        pet_weight double not null,
+        member_id bigint,
+        primary key (pet_id)
+    )
+Hibernate: 
+    
+    alter table member 
+       add constraint UK_3orqjaukiw2b73e2gw8rer4rq unique (member_email)
+Hibernate: 
+    
+    alter table boast 
+       add constraint FKmbhmt4mbptry67fghq1y7y89b 
+       foreign key (member_id) 
+       references member
+Hibernate: 
+    
+    alter table boast 
+       add constraint FK9skrld0qtf7pgr1pftpydjjf1 
+       foreign key (pet_id) 
+       references pet
+Hibernate: 
+    
+    alter table heart 
+       add constraint FK1qsktvt9sedov079mwofupprg 
+       foreign key (boast_id) 
+       references boast
+Hibernate: 
+    
+    alter table heart 
+       add constraint FKiqbtbunbl2h0r928gnlg7ncta 
+       foreign key (member_id) 
+       references member
+Hibernate: 
+    
+    alter table pet 
+       add constraint FK1c9th7o408mgfqkbjjkvkl4mw 
+       foreign key (member_id) 
+       references member
+2023-03-08 17:51:22.502  INFO 5103 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-08 17:51:22.509  INFO 5103 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-08 17:51:23.180  WARN 5103 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-08 17:51:23.786  INFO 5103 --- [    Test worker] p.m.boast.service.BoastServiceTest       : Started BoastServiceTest in 4.191 seconds (JVM running for 5.233)
+2023-03-08 17:51:23.819  INFO 5103 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@60afd40d testClass = BoastServiceTest, testInstance = projectB.meongbti.boast.service.BoastServiceTest@25762f04, testMethod = boastSave@BoastServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@28a2a3e7 testClass = BoastServiceTest, locations = '{}', classes = '{class projectB.meongbti.MeongbtiApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@26425897, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@30bcf3c1, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@42f48531, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4c4d27c8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@726e5805, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1787f2a0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@31daf094]; rollback [true]
+Hibernate: 
+    insert 
+    into
+        member
+        (member_id, member_email, member_nick, member_pw) 
+    values
+        (default, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        pet
+        (pet_id, member_id, pet_bday, pet_breed, pet_gender, pet_image, pet_mbti, pet_name, pet_ntlz, pet_weight) 
+    values
+        (default, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        boast
+        (boast_id, boast_content, boast_date, boast_image, member_id, pet_id) 
+    values
+        (default, ?, ?, ?, ?, ?)
+2023-03-08 17:51:24.089  INFO 5103 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@60afd40d testClass = BoastServiceTest, testInstance = projectB.meongbti.boast.service.BoastServiceTest@25762f04, testMethod = boastSave@BoastServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@28a2a3e7 testClass = BoastServiceTest, locations = '{}', classes = '{class projectB.meongbti.MeongbtiApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@26425897, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@30bcf3c1, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@42f48531, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4c4d27c8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@726e5805, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1787f2a0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-03-08 17:51:24.097  INFO 5103 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@60afd40d testClass = BoastServiceTest, testInstance = projectB.meongbti.boast.service.BoastServiceTest@7e4bbda4, testMethod = deleteBoast@BoastServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@28a2a3e7 testClass = BoastServiceTest, locations = '{}', classes = '{class projectB.meongbti.MeongbtiApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@26425897, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@30bcf3c1, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@42f48531, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4c4d27c8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@726e5805, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1787f2a0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@31daf094]; rollback [true]
+Hibernate: 
+    insert 
+    into
+        member
+        (member_id, member_email, member_nick, member_pw) 
+    values
+        (default, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        pet
+        (pet_id, member_id, pet_bday, pet_breed, pet_gender, pet_image, pet_mbti, pet_name, pet_ntlz, pet_weight) 
+    values
+        (default, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        boast
+        (boast_id, boast_content, boast_date, boast_image, member_id, pet_id) 
+    values
+        (default, ?, ?, ?, ?, ?)
+Hibernate: 
+    delete 
+    from
+        boast 
+    where
+        boast_id=?
+Hibernate: 
+    select
+        boast0_.boast_id as boast_id1_0_,
+        boast0_.boast_content as boast_co2_0_,
+        boast0_.boast_date as boast_da3_0_,
+        boast0_.boast_image as boast_im4_0_,
+        boast0_.member_id as member_i5_0_,
+        boast0_.pet_id as pet_id6_0_ 
+    from
+        boast boast0_
+2023-03-08 17:51:24.235  INFO 5103 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@60afd40d testClass = BoastServiceTest, testInstance = projectB.meongbti.boast.service.BoastServiceTest@7e4bbda4, testMethod = deleteBoast@BoastServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@28a2a3e7 testClass = BoastServiceTest, locations = '{}', classes = '{class projectB.meongbti.MeongbtiApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@26425897, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@30bcf3c1, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@42f48531, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4c4d27c8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@726e5805, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1787f2a0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
