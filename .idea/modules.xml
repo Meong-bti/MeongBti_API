@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MeongBti_API.meongbti.main.iml" filepath="$PROJECT_DIR$/.idea/modules/MeongBti_API.meongbti.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/meongbti.iml" filepath="$PROJECT_DIR$/.idea/modules/meongbti.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/meongbti.main.iml" filepath="$PROJECT_DIR$/.idea/modules/meongbti.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/meongbti.test.iml" filepath="$PROJECT_DIR$/.idea/modules/meongbti.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/projectB.meongbti.main.iml" filepath="$PROJECT_DIR$/.idea/modules/projectB.meongbti.main.iml" />
     </modules>
   </component>
