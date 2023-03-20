@@ -1,16 +1,9 @@
 package projectB.meongbti.member.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import projectB.meongbti.member.dto.MemberDto;
 import projectB.meongbti.member.dto.request.MemberJoinRequestDto;
-import projectB.meongbti.member.dto.request.MemberUpdateRequestDto;
-import projectB.meongbti.member.dto.response.MemberGetResponseDto;
-import projectB.meongbti.member.dto.response.MemberJoinResponseDto;
-import projectB.meongbti.member.dto.response.MemberLoginResponseDto;
-import projectB.meongbti.member.dto.response.MemberUpdateResponseDto;
+import projectB.meongbti.member.dto.response.MemberJoinResponse;
 import projectB.meongbti.util.response.Response;
 import projectB.meongbti.member.entity.Member;
 import projectB.meongbti.member.service.MemberService;
@@ -25,57 +18,68 @@ public class MemberController {
 
 
     @PostMapping("/signup")
-    public Response<MemberJoinResponseDto> memberSignup(@RequestBody
-                                                              MemberJoinRequestDto requestDto, Authentication authentication)  {
-        MemberDto memberDto = memberService.signup(requestDto.getMemberEmail(), requestDto.getMemberPw(), requestDto.getMemberNick());
-        return Response.success(MemberJoinResponseDto.fromMember(memberDto));
+    public Response<MemberJoinResponse> memberSignup(@RequestBody
+                                                              MemberJoinRequestDto requestDto)  {
+        Member member = memberService.signup(requestDto.getMemberEmail(), requestDto.getMemberPw(), requestDto.getMemberName());
+        return Response.success(MemberJoinResponse.fromMember(member));
     }
 
-    @PostMapping("/login")
-    public Response<MemberLoginResponseDto> login(@RequestBody MemberJoinRequestDto requestDto){
-
-        String token = memberService.login(requestDto.getMemberEmail(), requestDto.getMemberPw());
-        return Response.success(new MemberLoginResponseDto(token));
-    }
-
-    @PutMapping("/update")
-    public Response<MemberUpdateResponseDto> updateMember( Authentication authentication,
-                                                          @RequestBody MemberUpdateRequestDto requestDto) {
-        // 현재 인증된 사용자의 MemberDto를 가져옴
-        MemberDto currentMember = (MemberDto) authentication.getPrincipal();
-
-        // 서비스에서 회원 정보를 업데이트하고 업데이트된 회원 정보를 반환
-        MemberDto updatedMember = memberService.updateMember(
-                currentMember.getMemberEmail(),
-                requestDto.getMemberPw(),
-                requestDto.getMemberNick());
-
-        // 업데이트된 회원 정보를 사용하여 응답 DTO를 만들고 반환
-        return Response.success(MemberUpdateResponseDto.fromMember(updatedMember));
-    }
-    @DeleteMapping("/delete")
-    public Response<?> deleteMember(Authentication authentication) {
-        // 현재 인증된 사용자의 MemberDto를 가져옴
-        MemberDto currentMember = (MemberDto) authentication.getPrincipal();
-
-        // 서비스에서 회원 정보를 삭제
-        memberService.deleteMember(currentMember.getMemberEmail());
-
-        // 삭제에 성공한 경우, 응답 객체를 반환
-        return Response.success("회원 삭제 완료");
-    }
+//    @PostMapping("/login")
+//    public Response<UserLoginResponse> login(@RequestBody UserLoginRequest userLoginRequest){
+//
+//        String token = userService.login(userLoginRequest.getUsername(), userLoginRequest.getPassword());
+//        return Response.success(new UserLoginResponse(token));
+//    }
 
 
-    @GetMapping("/find")
-    public Response<MemberGetResponseDto> findMemberByEmail(Authentication authentication) {
-        // 현재 인증된 사용자의 MemberDto를 가져옴
-        MemberDto currentMember = (MemberDto) authentication.getPrincipal();
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Void> deleteMember(@PathVariable Long id){
+//        memberService.deleteMember(id);
+//        return ResponseEntity.ok().build();
+//    }
+//
+//    @GetMapping("/{id}")
+//    public ResponseEntity<MemberDto.Response> findByid(@PathVariable Long id){
+//        return ResponseEntity.ok().body(memberService.findByid(id));
+//    }
 
-        // 서비스에서 회원 정보를 조회하고 조회된 회원 정보를 반환
-        MemberDto memberDto = memberService.findMember(currentMember.getMemberEmail());
 
-        return Response.success(MemberGetResponseDto.fromMember(memberDto));
-    }
+
+
+
+
+
+//    @PatchMapping("/{id}")
+//    public ResponseEntity<MemberDto> updateMember(@PathVariable Long id, @RequestBody MemberDto memberDto){
+//        MemberDto updateMemberDto = memberService.updateMember(id, memberDto);
+//        return ResponseEntity.ok().body(updateMemberDto);
+//    }
+
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Void> deleteMember(@PathVariable Long id){
+//        memberService.deleteMember(id);
+//        return ResponseEntity.ok().build();
+//    }
+//    @GetMapping("/{id}")
+//    public ResponseEntity<MemberDto> findByid(@PathVariable Long id){
+//        return ResponseEntity.ok().body(memberService.findByid(id));
+//    }
+
+
+
+//    @PostMapping("/fileSystem")
+//    public ResponseEntity<?> uploadImageToFIleSystem(@RequestParam("image") MultipartFile file) throws IOException {
+//        String uploadImage = storageService.uploadImageToFileSystem(file);
+//        return ResponseEntity.status(HttpStatus.OK)
+//                .body(uploadImage);
+//    }
+//
+//    @GetMapping("/fileSystem/{fileName}")
+//    public ResponseEntity<?> downloadImageFromFileSystem(@PathVariable String fileName) throws IOException {
+//        byte[] imageData=storageService.downloadImageFromFileSystem(fileName);
+//        return ResponseEntity.status(HttpStatus.OK)
+//                .contentType(MediaType.valueOf("image/png"))
+//                .body(imageData);
 
     }
 
