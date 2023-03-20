@@ -10,14 +10,15 @@ import org.springframework.web.multipart.MultipartFile;
 public class MemberJoinRequestDto {
     private String memberEmail;
     private String memberPw;
-    private String memberName;
+    private String memberNick;
 
 
     @Builder
-    public MemberJoinRequestDto(String memberEmail, String memberPw, String memberName) {
+    public MemberJoinRequestDto(String memberEmail, String memberPw, String memberNick) {
+
         this.memberEmail = memberEmail;
         this.memberPw = memberPw;
-        this.memberName = memberName;
+        this.memberNick = memberNick;
 
     }
 
