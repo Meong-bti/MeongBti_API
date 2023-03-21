@@ -9,16 +9,16 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+//@Repository
 @RequiredArgsConstructor
-public class JpaHeartRepository implements HeartRepository {
+public class JpaHeartRepository {
 
     private final EntityManager em;
 
     /**
      * 좋아요 추가
      */
-    @Override
+    //@Override
     public void addHeart(Heart heart) {
         em.persist(heart);
     }
@@ -26,7 +26,7 @@ public class JpaHeartRepository implements HeartRepository {
     /**
      * 좋아요 삭제
      */
-    @Override
+    //@Override
     public void cancelHeart(Heart heart) {
         em.remove(heart);
     }
@@ -34,7 +34,7 @@ public class JpaHeartRepository implements HeartRepository {
     /**
      * 좋아요 정보 조회 By MemberId And BoastId
      */
-    @Override
+    //@Override
     public Optional<Heart> findOneByMemberAndBoast(HeartRequestDto heartRequestDto) {
         String jpql = "select h from Heart h where h.member.memberId = :memberId and h.boast.boastId = :boastId";
 
@@ -48,7 +48,7 @@ public class JpaHeartRepository implements HeartRepository {
     /**
      * 멤버ID를 이용하여 좋아요 한 자랑하기 목록 조회
      */
-    @Override
+    //@Override
     public List<Heart> findByMemberId(Long memberId) {
         String jpql = "select h from Heart h " +
                 "join fetch Boast b " +

@@ -37,14 +37,14 @@ public class HeartService {
     public Long addHeart(HeartRequestDto heartRequestDto) {
         //멤버ID와 게시글ID를 조회
         Member member = memberRepository.findById(heartRequestDto.getMemberId()).orElseThrow(() -> new MemberException(ErrorCode.USER_NOT_FOUND));
-        Boast boast = boastRepository.findOneByBoastId(heartRequestDto.getBoastId()).orElseThrow(() -> new BoastException(BoastErrorCode.BOAST_NOT_FOUND));
+        Boast boast = boastRepository.findById(heartRequestDto.getBoastId()).orElseThrow(() -> new BoastException(BoastErrorCode.BOAST_NOT_FOUND));
 
         Heart heart = Heart.builder()
                 .member(member)
                 .boast(boast)
                 .build();
 
-        heartRepository.addHeart(heart);
+        heartRepository.save(heart);
 
         return heart.getHeartId();
     }
@@ -54,9 +54,10 @@ public class HeartService {
      */
     public Long cancelHeart(HeartRequestDto heartRequestDto) {
         //멤버ID와 자랑하기ID를 이용하여 좋아요 정보 조회
-        Heart heart = heartRepository.findOneByMemberAndBoast(heartRequestDto).orElseThrow(() -> new HeartException(HeartErrorCode.HEART_NOT_FOUND));
+        Heart heart = heartRepository.findOneByMemberAndBoast(heartRequestDto.getMemberId(), heartRequestDto.getBoastId())
+                .orElseThrow(() -> new HeartException(HeartErrorCode.HEART_NOT_FOUND));
 
-        heartRepository.cancelHeart(heart);
+        heartRepository.delete(heart);
 
         return heart.getHeartId();
     }
@@ -79,4 +80,3 @@ public class HeartService {
         return returnList;
     }
 }
-

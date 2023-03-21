@@ -67,7 +67,7 @@ public class PetService {
                 .build();
 
         //펫 등록
-        petRepository.savePet(pet);
+        petRepository.save(pet);
 
         return pet.getPetId();
     }
@@ -76,9 +76,9 @@ public class PetService {
      * 펫 삭제
      */
     public Long deletePet(Long petId) {
-        Pet pet = petRepository.findOneByPetId(petId).orElseThrow(() -> new PetException(PetErrorCode.PET_NOT_FOUND));
+        Pet pet = petRepository.findById(petId).orElseThrow(() -> new PetException(PetErrorCode.PET_NOT_FOUND));
 
-        petRepository.deletePet(pet);
+        petRepository.delete(pet);
 
         return petId;
     }
@@ -89,7 +89,7 @@ public class PetService {
     public Long updatePet(Long petId, PetUpdateDto petUpdateDto) {
         //petId를 이용하여 펫 정보를 우선적으로 조회
         //펫 정보가 없으면 NotExistPet 예외를 발생시킨다.
-        Pet pet = petRepository.findOneByPetId(petId).orElseThrow(() -> new PetException(PetErrorCode.PET_NOT_FOUND));
+        Pet pet = petRepository.findById(petId).orElseThrow(() -> new PetException(PetErrorCode.PET_NOT_FOUND));
 
         //이미지를 저장한다.
         String fullPath = pet.getPetImage();
@@ -115,7 +115,7 @@ public class PetService {
      */
     @Transactional(readOnly = true)
     public PetDto findOneByPetId(Long petId) {
-        Pet pet = petRepository.findOneByPetId(petId)
+        Pet pet = petRepository.findById(petId)
                 .orElseThrow(() -> new PetException(PetErrorCode.PET_NOT_FOUND));
 
         return pet.fromEntity(pet);
@@ -126,7 +126,7 @@ public class PetService {
      */
     @Transactional(readOnly = true)
     public List<PetDto> findAllByMemberId(Long memberId) {
-        List<Pet> findPets = petRepository.findBymemberId(memberId);
+        List<Pet> findPets = petRepository.findByMemberId(memberId);
 
         List<PetDto> returnList = new ArrayList<>();
 

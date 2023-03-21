@@ -62,7 +62,7 @@ class BoastServiceTest {
                 .petWeight(11.11)
                 .member(member)
                 .build();
-        petRepository.savePet(pet);
+        petRepository.save(pet);
     }
 
     @DisplayName("자랑하기 등록")
@@ -76,7 +76,7 @@ class BoastServiceTest {
 
         Long boastId = boastService.saveBoast(boastSaveDto);
 
-        Boast boast = boastRepository.findOneByBoastId(boastId).get();
+        Boast boast = boastRepository.findById(boastId).get();
 
         assertThat(boastSaveDto.getBoastContent()).isEqualTo(boast.getBoastContent());
         assertThat(boastSaveDto.getMemberId()).isEqualTo(boast.getMember().getMemberId());

@@ -33,7 +33,7 @@ public class BoastService {
     public Long saveBoast(BoastSaveDto boastSaveDto) {
         //전달 받은 memberId와 petId를 이용하여 정보 조회
         Member member = memberRepository.findById(boastSaveDto.getMemberId()).orElseThrow(() -> new MemberException(ErrorCode.USER_NOT_FOUND));
-        Pet pet = petRepository.findOneByPetId(boastSaveDto.getPetId()).orElseThrow(() -> new PetException(PetErrorCode.PET_NOT_FOUND));
+        Pet pet = petRepository.findById(boastSaveDto.getPetId()).orElseThrow(() -> new PetException(PetErrorCode.PET_NOT_FOUND));
 
         //사진저장부분 로직 추가해야한다.
         Boast boast = Boast.builder()
@@ -44,15 +44,15 @@ public class BoastService {
                 .build();
 
         //자랑하기 등록
-        boastRepository.saveBoast(boast);
+        boastRepository.save(boast);
 
         return boast.getBoastId();
     }
 
     public Long deleteBoast(Long boastId) {
-        Boast boast = boastRepository.findOneByBoastId(boastId).orElseThrow(() -> new BoastException(BoastErrorCode.BOAST_NOT_FOUND));
+        Boast boast = boastRepository.findById(boastId).orElseThrow(() -> new BoastException(BoastErrorCode.BOAST_NOT_FOUND));
 
-        boastRepository.deleteBoast(boast);
+        boastRepository.delete(boast);
 
         return boastId;
     }

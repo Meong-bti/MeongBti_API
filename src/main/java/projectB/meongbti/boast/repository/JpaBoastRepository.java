@@ -8,16 +8,16 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+//@Repository
 @RequiredArgsConstructor
-public class JpaBoastRepository implements BoastRepository {
+public class JpaBoastRepository {
 
     private final EntityManager em;
 
     /**
      * 자랑하기 등록
      */
-    @Override
+    //@Override
     public void saveBoast(Boast boast) {
         em.persist(boast);
     }
@@ -25,7 +25,7 @@ public class JpaBoastRepository implements BoastRepository {
     /**
      * 자랑하기 삭제
      */
-    @Override
+    //@Override
     public void deleteBoast(Boast boast) {
         em.remove(boast);
     }
@@ -33,7 +33,7 @@ public class JpaBoastRepository implements BoastRepository {
     /**
      * 자랑하기 조회
      */
-    @Override
+    //@Override
     public Optional<Boast> findOneByBoastId(Long boastId) {
 //        String jpql = "select b from Boast b where b.boastId = :boastId";
 //
@@ -45,7 +45,7 @@ public class JpaBoastRepository implements BoastRepository {
         return Optional.ofNullable(em.find(Boast.class, boastId));
     }
 
-    @Override
+    //@Override
     public List<Boast> findByMemberId(Long memberId) {
         String jpql = "select b from Boast b where b.member.id = :memberId";
 
@@ -54,7 +54,7 @@ public class JpaBoastRepository implements BoastRepository {
                 .getResultList();
     }
 
-    @Override
+    //@Override
     public List<Boast> findAll() {
         String jpql = "select b from Boast b";
 

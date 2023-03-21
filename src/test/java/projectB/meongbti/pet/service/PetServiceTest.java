@@ -65,7 +65,7 @@ class PetServiceTest {
         Long petId = petService.savePet(petSaveDto);
 
         //then
-        Pet pet = petRepository.findOneByPetId(petId).get();
+        Pet pet = petRepository.findById(petId).get();
 
         assertThat(petSaveDto.getPetName()).isEqualTo(pet.getPetName());
         assertThat(petSaveDto.getPetBreed()).isEqualTo(pet.getPetBreed());
@@ -124,7 +124,7 @@ class PetServiceTest {
                 .build();
 
         Long findPetId = petService.updatePet(petId, petUpdateDto);
-        Pet pet = petRepository.findOneByPetId(findPetId).get();
+        Pet pet = petRepository.findById(findPetId).get();
 
         //then
         assertThat(petUpdateDto.getPetName()).isEqualTo(pet.getPetName());
@@ -165,7 +165,7 @@ class PetServiceTest {
     @DisplayName("펫조회 실패")
     @Test
     void findPetFail () {
-         assertThrows(PetException.class, () -> petService.findOneByPetId(1L));
+        assertThrows(PetException.class, () -> petService.findOneByPetId(1L));
     }
 
 
