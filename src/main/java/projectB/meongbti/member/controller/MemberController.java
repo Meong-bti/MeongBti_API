@@ -1,4 +1,4 @@
-package projectB.meongbti.member.configuration.controller;
+package projectB.meongbti.member.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.query.Param;
