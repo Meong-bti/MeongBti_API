@@ -25,18 +25,19 @@ public class AuthenticationConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-       http.csrf().disable()
+       http
+//               .csrf().disable()
          .authorizeRequests()
-               .antMatchers("/member/signup", "/member/login").permitAll()
-               .anyRequest().authenticated()
-               .and()
-               .sessionManagement()
-               .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-               .and()
-               .addFilterBefore(new JwtTokenFilter(memberService, secretKey), UsernamePasswordAuthenticationFilter.class)
-
-
-               ;
+               .anyRequest().permitAll();
+//               .antMatchers("/member/signup", "/member/login").permitAll()
+//               .anyRequest().authenticated()
+//               .and()
+//               .sessionManagement()
+//               .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//               .and()
+//               .addFilterBefore(new JwtTokenFilter(memberService, secretKey), UsernamePasswordAuthenticationFilter.class)
+//
+//               ;
 
 
     }

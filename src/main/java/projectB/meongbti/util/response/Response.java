@@ -7,16 +7,17 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Response<T> {
 
-    private String process;
+    private Status status;
+    private String message;
     private T data;
 
-    public static Response<Void> error(String errCode) {
+    public static Response<Void> error(String message) {
 
-        return new Response<>(errCode, null);
+        return new Response<>(Status.ERROR, message, null);
     }
 
-    public static <T> Response<T> success(T result) {
+    public static <T> Response<T> success(String message, T result) {
 
-        return new Response<>("성공", result);
+        return new Response<>(Status.SUCCESS, message, result);
     }
 }
