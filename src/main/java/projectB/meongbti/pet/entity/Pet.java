@@ -36,7 +36,6 @@ public class Pet {
     private PetNtlz petNtlz;
 
     @Column(nullable = false)
-
     private Double petWeight;
 
     private String petMbti;
@@ -48,7 +47,7 @@ public class Pet {
     private Member member;
 
     //==Dto 변환 메서드==//
-    public PetDto fromEntity(Pet pet) {
+    public static PetDto fromEntity(Pet pet) {
         return PetDto.builder()
                 .petId(pet.getPetId())
                 .petName(pet.getPetName())
@@ -65,11 +64,8 @@ public class Pet {
     //==엔티티 메서드==//
     public void updatePet(PetUpdateDto petUpdateDto, String fullPath) {
         this.petName = petUpdateDto.getPetName();
-        this.petBreed = petUpdateDto.getPetBreed();
-        this.petBday = petUpdateDto.getPetBday();
-        this.petGender = petUpdateDto.getPetGender();
         this.petNtlz = petUpdateDto.getPetNtlz();
-        this.petWeight = petUpdateDto.getPetWeight();
+        this.petWeight = petUpdateDto.getWeight();
         this.petImage = fullPath;
     }
 

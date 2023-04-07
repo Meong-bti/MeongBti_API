@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import projectB.meongbti.pet.entity.PetGender;
 import projectB.meongbti.pet.entity.PetNtlz;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Data
@@ -18,16 +19,19 @@ public class PetUpdateDto {
 
     private String petName;
 
-    private String petBreed;
-
-    private LocalDate petBday;
-
-    private PetGender petGender;
-
     private PetNtlz petNtlz;
 
-    private Double petWeight;
+    private String positiveWeight;
+    private String negativeWeight;
 
     private MultipartFile petImage;
 
+    //== 비즈니스 로직 ==//
+    //강아지의 몸무게
+    public Double getWeight() {
+        String weight = this.positiveWeight + "." + negativeWeight;
+
+        return Double.parseDouble(weight);
+    }
 }
+

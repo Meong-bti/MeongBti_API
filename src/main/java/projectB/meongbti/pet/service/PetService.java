@@ -73,17 +73,6 @@ public class PetService {
     }
 
     /**
-     * 펫 삭제
-     */
-    public Long deletePet(Long petId) {
-        Pet pet = petRepository.findById(petId).orElseThrow(() -> new PetException(PetErrorCode.PET_NOT_FOUND));
-
-        petRepository.delete(pet);
-
-        return petId;
-    }
-
-    /**
      * 펫 수정
      */
     public Long updatePet(Long petId, PetUpdateDto petUpdateDto) {
@@ -111,6 +100,17 @@ public class PetService {
     }
 
     /**
+     * 펫 삭제
+     */
+    public Long deletePet(Long petId) {
+        Pet pet = petRepository.findById(petId).orElseThrow(() -> new PetException(PetErrorCode.PET_NOT_FOUND));
+
+        petRepository.delete(pet);
+
+        return petId;
+    }
+
+    /**
      * 펫ID를 이용하여 펫 정보 조회
      */
     @Transactional(readOnly = true)
@@ -118,7 +118,7 @@ public class PetService {
         Pet pet = petRepository.findById(petId)
                 .orElseThrow(() -> new PetException(PetErrorCode.PET_NOT_FOUND));
 
-        return pet.fromEntity(pet);
+        return Pet.fromEntity(pet);
     }
 
     /**
@@ -130,8 +130,8 @@ public class PetService {
 
         List<PetDto> returnList = new ArrayList<>();
 
-        findPets.stream().forEach(pet -> {
-            PetDto petDto = pet.fromEntity(pet);
+        findPets.forEach(pet -> {
+            PetDto petDto = Pet.fromEntity(pet);
             returnList.add(petDto);
         });
 

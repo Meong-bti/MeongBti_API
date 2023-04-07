@@ -2,6 +2,8 @@ package projectB.meongbti.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import projectB.meongbti.exception.boast.BoastException;
@@ -24,6 +26,23 @@ public class ControllerAdvice {
 //        return ResponseEntity.status(e.getErrorCode().getStatus())
 //                .body(Response.error(e.getErrorCode().name()));
 //    }
+
+    /**
+     * BindingResult 에러
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, String>> methodArgumentNotValidException(MethodArgumentNotValidException e) {
+        Map<String, String> errorBody = new HashMap<>();
+
+        e.getBindingResult().getAllErrors()
+                .forEach(error -> {
+                    String fieldName = ((FieldError) error).getField();
+                    String errorMessage = error.getDefaultMessage();
+                    errorBody.put(fieldName, errorMessage);
+                });
+
+        return ResponseEntity.badRequest().body(errorBody);
+    }
 
     @ExceptionHandler(MemberException.class)
     public ResponseEntity<Map<String, String>> MemberHandler(MemberException e) {
