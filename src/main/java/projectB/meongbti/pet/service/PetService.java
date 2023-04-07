@@ -58,10 +58,10 @@ public class PetService {
         Pet pet = Pet.builder()
                 .petName(petSaveDto.getPetName())
                 .petBreed(petSaveDto.getPetBreed())
-                .petBday(petSaveDto.getPetBday())
+                .petBday(petSaveDto.getBirthday())
                 .petGender(petSaveDto.getPetGender())
                 .petNtlz(petSaveDto.getPetNtlz())
-                .petWeight(petSaveDto.getPetWeight())
+                .petWeight(petSaveDto.getWeight())
 //                .petImage(fullPath)
                 .member(member)
                 .build();
