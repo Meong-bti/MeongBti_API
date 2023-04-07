@@ -26,7 +26,7 @@ public class Heart {
     private Boast boast;
 
     //==Dto 변환 메서드==//
-    public HeartDto fromEntity(Heart heart) {
+    public static HeartDto fromEntity(Heart heart) {
         return HeartDto.builder()
                 .heartId(heart.getHeartId())
                 .member(heart.getMember())

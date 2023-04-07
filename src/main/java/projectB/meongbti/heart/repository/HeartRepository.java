@@ -16,7 +16,7 @@ public interface HeartRepository extends JpaRepository<Heart, Long> {
     @Query("select h from Heart h where h.member.memberId = :memberId and h.boast.boastId = :boastId")
     public Optional<Heart> findOneByMemberAndBoast(@Param("memberId") Long memberId, @Param("boastId") Long boastId);
 
-    @EntityGraph(attributePaths = {"member", "boast"})
+    @EntityGraph(attributePaths = "boast")
     @Query("select h from Heart h where h.member.memberId = :memberId")
     public List<Heart> findByMemberId(@Param("memberId") Long memberId);
 

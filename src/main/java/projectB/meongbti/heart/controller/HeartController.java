@@ -5,8 +5,11 @@ import org.springframework.web.bind.annotation.*;
 import projectB.meongbti.heart.dto.HeartDto;
 import projectB.meongbti.heart.dto.HeartRequestDto;
 import projectB.meongbti.heart.service.HeartService;
+import projectB.meongbti.util.response.Response;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,16 +22,26 @@ public class HeartController {
      * 좋아요 추가
      */
     @PostMapping("/add")
-    public Long addHeart(@RequestBody HeartRequestDto heartRequestDto) {
-        return heartService.addHeart(heartRequestDto);
+    public Response<Map<String, Long>> addHeart(@RequestBody HeartRequestDto heartRequestDto) {
+        Long heartId = heartService.addHeart(heartRequestDto);
+
+        HashMap<String, Long> resultData = new HashMap<>();
+        resultData.put("heartId", heartId);
+
+        return Response.success("좋아요를 성공적으로 등록했습니다.", resultData);
     }
 
     /**
      * 좋아요 취소
      */
     @DeleteMapping("/cancel")
-    public Long cancelHeart(@RequestBody HeartRequestDto heartRequestDto) {
-        return heartService.cancelHeart(heartRequestDto);
+    public Response<Map<String, Long>> cancelHeart(@RequestBody HeartRequestDto heartRequestDto) {
+        Long heartId = heartService.cancelHeart(heartRequestDto);
+
+        HashMap<String, Long> resultData = new HashMap<>();
+        resultData.put("heartId", heartId);
+
+        return Response.success("좋아요를 성공적으로 취소했습니다.", resultData);
     }
 
     /**
