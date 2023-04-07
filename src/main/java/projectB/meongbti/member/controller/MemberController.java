@@ -28,14 +28,14 @@ public class MemberController {
     public Response<MemberJoinResponseDto> memberSignup(@RequestBody
                                                               MemberJoinRequestDto requestDto, Authentication authentication)  {
         MemberDto memberDto = memberService.signup(requestDto.getMemberEmail(), requestDto.getMemberPw(), requestDto.getMemberNick());
-        return Response.success(MemberJoinResponseDto.fromMember(memberDto));
+        return Response.success("성공", MemberJoinResponseDto.fromMember(memberDto));
     }
 
     @PostMapping("/login")
     public Response<MemberLoginResponseDto> login(@RequestBody MemberJoinRequestDto requestDto){
 
         String token = memberService.login(requestDto.getMemberEmail(), requestDto.getMemberPw());
-        return Response.success(new MemberLoginResponseDto(token));
+        return Response.success("성공", new MemberLoginResponseDto(token));
     }
 
     @PutMapping("/update")
@@ -51,7 +51,7 @@ public class MemberController {
                 requestDto.getMemberNick());
 
         // 업데이트된 회원 정보를 사용하여 응답 DTO를 만들고 반환
-        return Response.success(MemberUpdateResponseDto.fromMember(updatedMember));
+        return Response.success("성공", MemberUpdateResponseDto.fromMember(updatedMember));
     }
     @DeleteMapping("/delete")
     public Response<?> deleteMember(Authentication authentication) {
@@ -62,7 +62,7 @@ public class MemberController {
         memberService.deleteMember(currentMember.getMemberEmail());
 
         // 삭제에 성공한 경우, 응답 객체를 반환
-        return Response.success("회원 삭제 완료");
+        return Response.success("회원 삭제 완료", null);
     }
 
 
@@ -74,7 +74,7 @@ public class MemberController {
         // 서비스에서 회원 정보를 조회하고 조회된 회원 정보를 반환
         MemberDto memberDto = memberService.findMember(currentMember.getMemberEmail());
 
-        return Response.success(MemberGetResponseDto.fromMember(memberDto));
+        return Response.success("성공", MemberGetResponseDto.fromMember(memberDto));
     }
 
     }
