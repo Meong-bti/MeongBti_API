@@ -4,7 +4,7 @@ jdk:
 
 branches:
   only:
-    - master
+    - main
 
 cache:
   directories:
@@ -47,4 +47,4 @@ deploy:
 notifications:
   email:
     recipients:
-      - cjs1863@gmail.com
+      - seoyoon047@gmail.com
