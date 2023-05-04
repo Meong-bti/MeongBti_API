@@ -22,7 +22,6 @@ before_deploy:
   - cd ../ && mkdir -p deploy
   - mv before-deploy/before-deploy.zip deploy/aws-test.zip
 
-
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # travis repo settings에 설정된 값
@@ -41,7 +40,7 @@ deploy:
     bundle_type: zip # 압축 확장자
     application: travis # codeDeploy 애플리케이션 명
     deployment_group: travis # 배포 그룹 명
-    regoin: ap-northeast-2
+    region: ap-northeast-2
     wait-until-deployed: true
 
 notifications:
