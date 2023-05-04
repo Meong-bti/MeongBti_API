@@ -14,8 +14,7 @@ cache:
 before_script:
   - chmod +x ./gradlew
 
-script:
-  - ./gradlew assemble
+script: "./gradlew clean build"
 
 before_deploy:
   - mkdir -p before-deploy
