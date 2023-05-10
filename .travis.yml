@@ -29,6 +29,10 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
     bucket: meongbti-s3 # 생성한 S3 버킷
+    key: meongbti.zip # S3 버킷에 저장된 파일을 EC2로 배포
+    bundle_type: zip
+    application: meongbtiServer    # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
+    deployment_group: meongbtiServer-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     skip_cleanup: true
     local_dir: deploy
@@ -37,6 +41,20 @@ deploy:
     on:
         repo: Meong-bti/MeongBti_API #Github 주소
         branch: main
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: meongbti-s3 # S3 버킷
+    key: meongbti.zip # S3 버킷에 저장된 jaewon-study.zip 파일을 EC2로 배포
+    bundle_type: zip
+    application: meongbtiServer # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
+    deployment_group: meongbtiServer-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    region: ap-northeast-2
+    wait-until-deployed: true
+    on:
+      repo: Meong-bti/MeongBti_API
+      branch: main
 
 notifications:
   email:
