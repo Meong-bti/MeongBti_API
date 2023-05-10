@@ -19,15 +19,16 @@ before_install:
 script: "./gradlew clean build -x test"
 
 before_deploy:
-  - zip -r springboot-webservice *
+  - zip -r meongbti *
+  - ls -la
   - mkdir -p deploy
-  - mv jaewon-study.zip deploy/jaewon-study.zip
+  - mv meongbti.zip deploy/meongbti.zip
 
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-    bucket: jaewonstudy-webservice-deploy # 생성한 S3 버킷
+    bucket: meongbti-s3 # 생성한 S3 버킷
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
