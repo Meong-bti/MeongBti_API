@@ -86,6 +86,6 @@ configurations {
 }
 //querydsl 추가 끝
 
-tasks.getByName<Jar>("jar") {
+jar {
 	enabled = false
 }
