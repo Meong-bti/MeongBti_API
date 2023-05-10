@@ -19,13 +19,9 @@ before_install:
 script: "./gradlew clean build -x test"
 
 before_deploy:
-  - mkdir -p before-deploy
-  - cp scripts/*.sh before-deploy/
-  - cp appspec.yml before-deploy/
-  - cp build/libs/*.jar before-deploy/
-  - cd before-deploy && zip -r before-deploy *
-  - cd ../ && mkdir -p deploy
-  - mv before-deploy/before-deploy.zip deploy/meongbti.zip
+  - zip -r meongbti *
+  - mkdir -p deploy
+  - mv meongbti.zip deploy/meongbti.zip
 
 deploy:
   - provider: s3
@@ -35,6 +31,7 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
+    local_dir: deploy
     wait-until-deployed: true
     on:
         repo: seoyoon047/MeongBti_API #Github 주소
