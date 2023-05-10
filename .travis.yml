@@ -47,6 +47,9 @@ deploy:
     deployment_group: travis # 배포 그룹 명
     region: ap-northeast-2
     wait-until-deployed: true
+    on:
+        repo: seoyoon047/MeongBti_API #Github 주소
+        branch: main
 
 notifications:
   email:
