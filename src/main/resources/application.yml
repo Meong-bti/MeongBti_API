@@ -1,27 +1,27 @@
-#spring:
-#  profiles:
-#    active: local # 기본 환경 선택
-#  jpa:
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-#  config:
-#    use-legacy-processing: true
-#---
-#spring:
-#  jpa:
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: create-drop
-#  h2:
-#    console:
-#      enabled: true
-#  sql:
-#    init:
-#      data-locations: classpath:data-h2.sql
-#  config:
-#    activate:
-#      on-profile: local
+spring:
+  profiles:
+    active: local # 기본 환경 선택
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  config:
+    use-legacy-processing: true
+---
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      data-locations: classpath:data-h2.sql
+  config:
+    activate:
+      on-profile: local
 
 # 운영 환경
 ---
@@ -36,6 +36,13 @@ spring:
   config:
     activate:
       on-profile: set2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
 
 #jwt
 jwt:
