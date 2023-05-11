@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class MeongbtiApplication {
 	public static final String APPLICATION_LOCATIONS = "spring.config.location="
 			+ "classpath:application.yml,"
-			+ "./app/config/meongbti/real-application.yml";
+			+ "file:/home/ec2-user/app/travis/app/config/meongbti/real-application.yml";
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(MeongbtiApplication.class)
 				.properties(APPLICATION_LOCATIONS)
