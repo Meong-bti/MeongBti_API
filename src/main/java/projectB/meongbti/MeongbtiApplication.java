@@ -18,7 +18,7 @@ public class MeongbtiApplication {
 				.properties(APPLICATION_LOCATIONS)
 				.run(args);
 
-		
+
 	}
 
 }
