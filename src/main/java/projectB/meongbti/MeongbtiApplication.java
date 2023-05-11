@@ -17,6 +17,8 @@ public class MeongbtiApplication {
 		new SpringApplicationBuilder(MeongbtiApplication.class)
 				.properties(APPLICATION_LOCATIONS)
 				.run(args);
+
+		
 	}
 
 }
