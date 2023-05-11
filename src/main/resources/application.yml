@@ -24,7 +24,7 @@ spring:
       data-locations: classpath:data-h2.sql
 
 server:
-  port: 8080
+  port: 8081
 
 # 운영 환경
 ---
