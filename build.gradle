@@ -90,5 +90,6 @@ configurations {
 //querydsl 추가 끝
 
 jar {
+	archiveFileName = 'meongbti.jar'
 	enabled = false
 }
