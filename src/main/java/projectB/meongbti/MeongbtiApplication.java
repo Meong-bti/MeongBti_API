@@ -12,15 +12,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableCaching
 public class MeongbtiApplication {
 
+
 	public static final String APPLICATION_LOCATIONS = "spring.config.location="
 			+ "classpath:application.yml,"
-			+ "/home/ec2-user/app/config/meongbti/real-application.yml";
-
+			+ "./app/config/meongbti/real-application.yml";
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(MeongbtiApplication.class)
 				.properties(APPLICATION_LOCATIONS)
 				.run(args);
-
 	}
 
 }
