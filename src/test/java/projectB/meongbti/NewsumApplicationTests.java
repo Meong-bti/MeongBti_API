@@ -21,6 +21,7 @@ class NewsumApplicationTests {
         String profile = this.restTemplate.getForObject("/ngnix",String.class);
         //then
         Assertions.assertThat(profile).isEqualTo("local");
+        
     }
 
 }
