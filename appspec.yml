@@ -4,6 +4,7 @@ files:
   - source:  /
     destination:  /home/ec2-user/app/nonstop/springboot-webservice/
     overwrite: yes
+file_exist_behavior: overwrite
 # 파일 권한 추가
 permission:
   - object: /
