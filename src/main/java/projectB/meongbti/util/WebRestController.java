@@ -20,5 +20,6 @@ public class WebRestController {
         return Arrays.stream(env.getActiveProfiles())
                 .findFirst()
                 .orElse("");
+
     }
 }
