@@ -9,7 +9,7 @@ plugins {
 }
 
 group = 'projectB'
-version = '0.0.4-SNAPSHOT'
+version = '0.0.5-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
@@ -36,6 +36,7 @@ dependencies {
 	implementation 'commons-io:commons-io:2.7'
 
 	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
 	implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.5'
 //	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
