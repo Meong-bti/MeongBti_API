@@ -10,12 +10,13 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 @EnableCaching
+@EnableJpaAuditing
 public class MeongbtiApplication {
 
 
 	public static final String APPLICATION_LOCATIONS = "spring.config.location="
 			+ "classpath:application.yml,"
-			+ "./app/config/nesum/real-application.yml";
+			+ "/app/config/meongbti/real-application.yml";
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(MeongbtiApplication.class)
 				.properties(APPLICATION_LOCATIONS)

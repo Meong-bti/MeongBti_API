@@ -9,7 +9,6 @@ spring:
     use-legacy-processing: true
 ---
 spring:
-  profiles: local
   jpa:
     show-sql: true
     hibernate:
@@ -20,6 +19,9 @@ spring:
   sql:
     init:
       data-locations: classpath:data-h2.sql
+  config:
+    activate:
+      on-profile:
 
 server:
   port: 8080
