@@ -34,6 +34,9 @@ dependencies {
 	//Multipart 라이브러리
 	implementation 'commons-fileupload:commons-fileupload:1.5'
 	implementation 'commons-io:commons-io:2.7'
+	testImplementation 'junit:junit:4.13.1'
+	testImplementation 'junit:junit:4.13.1'
+	testImplementation 'junit:junit:4.13.1'
 
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
