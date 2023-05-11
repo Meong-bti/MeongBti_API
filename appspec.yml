@@ -3,7 +3,7 @@ os: linux
 files:
   - source:  /
     destination: /home/ec2-user/app/nonstop/meongbti/
-    overwrtie: yes
+    overwrite: yes
 # 파일 권한 추가
 permission:
   - object: /
