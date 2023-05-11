@@ -1,41 +1,29 @@
 spring:
   profiles:
-    active: local # 기본 환경 선택
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-  config:
-    use-legacy-processing: true
+    active: local
 ---
 spring:
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: create-drop
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
   h2:
     console:
       enabled: true
-  sql:
-    init:
-      data-locations: classpath:data-h2.sql
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.H2Dialect
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
   config:
     activate:
-      on-profile:
+      on-profile: local
 
-server:
-  port: 8080
 
-# 운영 환경
----
-spring.profiles.include: real-db
-spring:
-  config:
-    activate:
-      on-profile: set1
----
-spring.profiles.include: real-db
-spring:
-  config:
-    activate:
-      on-profile: set2
+logging:
+  level:
+    org.hibernate.sql: debug
